@@ -8,8 +8,7 @@
                 "$ref": "#/components/schemas/LastModifiedTypeEnum"
               }
             }
-          }
-        ],
+          },
         "responses": {
           "200": {
             "description": "Accommodation list",
