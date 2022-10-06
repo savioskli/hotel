@@ -1,27 +1,25 @@
+{
+  "AccommodationItem": [
+    {
+      "Code": "ES9410.845.1",
+      "Name": "Nuvol Blau",
+      "LastModifiedSince": "2021-01-30T01:19:30",
+      "ValidFrom": "2021-02-12",
+      "ValidTo": "2021-11-26",
+      "Brand": "I",
+      "LastModifiedTypes": {
+        "LastModifiedType": [
           {
-            "name": "ModifyType",
-            "in": "query",
-            "description": "List of ModifyTypes to specifically search for. For example you want to check every 5 minutes for changes on availability then use 'VACANCY' (see LastModifiedTypeEnum)",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/LastModifiedTypeEnum"
-              }
-            }
-          },
-        "responses": {
-          "200": {
-            "description": "Accommodation list",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccommodationListRs"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccommodationListRs"
-                }
-              }
-            }
+            "Type": "VACANCY",
+            "LastModified": "2022-02-04T08:07:25"
           }
+        ]
+      }
+    }
+  ],
+  "Error": {
+    "Status": "NOT_FOUND",
+    "Code": 34,
+    "Message": "Nothing found for the AccommodationCode 'ES9410.845.1'"
+  }
+}
