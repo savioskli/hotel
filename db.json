@@ -1,38 +1,19 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "title": "Interhome Group Distribution API",
-    "description": "The Webservices have been developed for Interhome Group using a REST-approach.\r\n\r\n## Endpoint-URLs Format\r\n[Base URL][REST route][Selectors][Query parameters]\r\n\r\n## Service URLs\r\nTest System: https://ws.interhome.com/test/ih/b2b/V0100/\r\n\r\nProduction system: https://ws.interhome.com/ih/b2b/V0100/\r\n\r\nRoutes, selectors and query parameters are specified below with each individual service.\r\n## Limitation of requests\r\nTest Environment: 50 RQ /second\r\n\r\nProductive Environment: 200 RQ/second\r\n\r\nPlease use \"Accept-Encoding: gzip\" to reduce traffic.\r\n\r\n## Scheduled downtime\r\nEvery Tuesday morning around 4:00 to 6:00 (CET), our service might be unresponsive due to system updates.",
-    "termsOfService": "https://partners.interhome.group/",
-    "contact": {
-      "name": "Interhome Group",
-      "url": "https://partners.interhome.group/",
-      "email": "partners@interhome.group"
-    },
-    "version": "v5.2.2"
-  },
-  "servers": [
-    {
-      "url": "https://ws.interhome.com/test/ih/b2b/V0100"
+  "data": [{
+    "type": "articles",
+    "id": "1",
+    "attributes": {
+      "title": "JSON:API paints my bikeshed!",
+      "body": "The shortest article. Ever."
     }
-  ],
-  "paths": {
-    "/accommodation/list": {
-      "get": {
-        "tags": [
-          "2. Accommodation"
-        ],
-        "summary": "2.1.1 Accommodation list",
-        "description": "## Description\r\nThe method returns a list of all accommodations (code, name, date of modification) with an active contract.\r\n## Use case\r\nThis method is typically called during a nightly or weekly automated update of property data. The returned static data for the accommodation codes is afterwards updated using the *Accommodation/Details* service and is cached locally.\r\n            \r\nPlease be aware that you should use the query parameter *ModifiedSince* to receive just the accommodation which have been updated in the following fields since your last import: *Prices*, *Accommodation/Details*. Interhome does not support any info of inactivated properties; so you need to create your own delta.\r\n## Caching\r\nYes\r\n## Timing/Duration of call\r\nWhole portfolio: 1 second\r\n            \r\nWith *ModifiedSince*: 3 seconds\r\n## Examples\r\n[https://ws.interhome.com/ih/b2b/V0100/accommodation/list](https://ws.interhome.com/ih/b2b/V0100/accommodation/list)",
-        "operationId": "ListAccommodations",
-        "parameters": [
-          {
-            "name": "ModifiedSince",
-            "in": "query",
-            "description": "Filters results to accommodations modified after a given\r\ndate. ModifiedSince can be a date or a datetime value.",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "example": "2016-06-24T10:00:00"
-          }
+  }],
+  "included": [
+    {
+      "type": "people",
+      "id": "42",
+      "attributes": {
+        "name": "John"
+      }
+    }
+  ]
+}
