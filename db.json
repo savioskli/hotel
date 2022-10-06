@@ -1,19 +1,28 @@
-{
-  "data": [{
-    "type": "articles",
-    "id": "1",
-    "attributes": {
-      "title": "JSON:API paints my bikeshed!",
-      "body": "The shortest article. Ever."
-    }
-  }],
-  "included": [
-    {
-      "type": "people",
-      "id": "42",
-      "attributes": {
-        "name": "John"
-      }
-    }
-  ]
-}
+          {
+            "name": "ModifyType",
+            "in": "query",
+            "description": "List of ModifyTypes to specifically search for. For example you want to check every 5 minutes for changes on availability then use 'VACANCY' (see LastModifiedTypeEnum)",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/LastModifiedTypeEnum"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Accommodation list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccommodationListRs"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccommodationListRs"
+                }
+              }
+            }
+          }
